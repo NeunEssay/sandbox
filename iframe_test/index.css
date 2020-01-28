@@ -1,0 +1,10 @@
+.chat-style {
+    height: 500px;
+    width: 200px;
+    border: solid black 2px;
+}
+
+iframe {
+    height: 700px;
+    width: 400px;
+}
