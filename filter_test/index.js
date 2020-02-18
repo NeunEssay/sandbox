@@ -1,5 +1,5 @@
 const FILTER_DIC = {
-    "color": ["rose_gold"],
+    "color": [],
     "display": [],
     "memory": [],
     "model": [],
@@ -17,8 +17,7 @@ async function main(DATA) {
 }
 
 function filter_data(dataStructure, filterDic) {
-    let filteredObj = [],
-        checker_BOOL = true
+    let filteredObj = []
 
     for (let i = 0; i < dataStructure.length; i++) {
 
@@ -27,15 +26,15 @@ function filter_data(dataStructure, filterDic) {
                 filterDic[key].forEach(function (filterItem) {
                     dataStructure[i][key].forEach(function (dataItem) {
                         if (filterItem != dataItem) {
-                            checker_BOOL = false
+                            return
+                        } else {
+                            filteredObj.push(dataStructure[i])
                         }
                     })
                 })
+            } else {
+                filteredObj.push(dataStructure[i])
             }
-        }
-
-        if (checker_BOOL === true) {
-            filteredObj.push(dataStructure[i])
         }
     }
 
