@@ -1,0 +1,34 @@
+[
+  {
+    "color": ["rose_gold"],
+    "display": [4.7],
+    "memory": [128],
+    "model": ["5s", "9s"],
+    "price": [31990],
+    "shops": [
+      "трк_авиапарк",
+      "трк_атриум"
+    ]
+  },
+  {
+    "color": ["silver"],
+    "display": [4.7],
+    "memory": [128],
+    "model": ["6s"],
+    "price": [32990],
+    "shops": [
+      "трк_авиапарк"
+    ]
+  },
+  {
+    "color": ["silver"],
+    "display": [5.8],
+    "memory": [64],
+    "model": ["7s"],
+    "price": [33990],
+    "shops": [
+      "трк_авиапарк",
+      "трк_атриум"
+    ]
+  }
+]
