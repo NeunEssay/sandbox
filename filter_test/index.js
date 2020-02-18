@@ -1,19 +1,23 @@
 const FILTER_DIC = {
     "color": [],
-    "display": [4.7],
+    "display": [],
     "memory": [],
-    "model": ["9s"],
+    "model": [],
     "price": [],
     "shops": []
 }
 
-const IPHONE_DATA =  'data.json'
+const IPHONE_DATA = 'data.json'
 
-async function filtered_data(dataStructure, filteredStructure) {
-    const response = await fetch(dataStructure),
+async function main(DATA) {
+    const response = await fetch(DATA),
         data = await response.json()
 
-    let filteredObj = {},
+    console.log(filtered_data(data, FILTER_DIC))
+}
+
+function filtered_data(dataStructure, filteredStructure) {
+    let filteredObj = [],
         dicCount = 0
 
     for (let key in filteredStructure) {
@@ -22,53 +26,29 @@ async function filtered_data(dataStructure, filteredStructure) {
         }
     }
 
-    for (key in filteredStructure) {
-        filteredObj[key] = filteredStructure[key]
-        filteredObj[key] = []
-    }
-
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < dataStructure.length; i++) {
         let checkCount = 0
 
         top: {
-            for (let key in data[i]) {
+            for (let key in filteredStructure) {
                 if (filteredStructure[key].length !== 0) {
                     checkCount++
                     for (let j = 0; j < filteredStructure[key].length; j++) {
-                        for (let k = 0; k < data[i][key].length; k++) {
-                            if (data[i][key][k] != filteredStructure[key][j] && k === data[i][key].length) {
+                        for (let k = 0; k < dataStructure[i][key].length; k++) {
+                            if (dataStructure[i][key][k] != filteredStructure[key][j] && k === dataStructure[i][key].length-1) {
                                 break top
                             }
                         }
                     }
                 }
             }
-
-
-            if (dicCount == checkCount) {
-                for (let key in data[i]) {
-                    for (let k = 0; k < data[i][key].length; k++) {
-                        if (filteredObj[key].length == 0) {
-                            filteredObj[key].push(data[i][key][k])
-                        } else {
-                            for (let j = 0; j < filteredObj[key].length; j++) {
-                                if (data[i][key][k] != filteredObj[key][j] && k === filteredObj[key].length) {
-                                    filteredObj[key].push(data[i][key][k])
-                                }
-                            }
-                        }
-                    }
-                }
+            console.log(checkCount, dicCount)
+            if (checkCount === dicCount) {
+                filteredObj.push(dataStructure[i])
             }
         }
     }
-
-    for (let key in filteredObj) {
-        for (let i = 0; i < filteredObj[key].length; i++) {
-            document.write(filteredObj[key][i] + '<br>')
-        }
-    }
-
+    return filteredObj
 }
 
-filtered_data(IPHONE_DATA, FILTER_DIC)
+main(IPHONE_DATA)
