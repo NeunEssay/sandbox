@@ -1,5 +1,5 @@
 const FILTER_DIC = {
-    "color": [],
+    "color": ["rose_gold"],
     "display": [],
     "memory": [],
     "model": [],
@@ -13,41 +13,32 @@ async function main(DATA) {
     const response = await fetch(DATA),
         data = await response.json()
 
-    console.log(filtered_data(data, FILTER_DIC))
+    console.log(filter_data(data, FILTER_DIC))
 }
 
-function filtered_data(dataStructure, filteredStructure) {
+function filter_data(dataStructure, filterDic) {
     let filteredObj = [],
-        dicCount = 0
-
-    for (let key in filteredStructure) {
-        if (filteredStructure[key].length !== 0) {
-            dicCount++
-        }
-    }
+        checker_BOOL = true
 
     for (let i = 0; i < dataStructure.length; i++) {
-        let checkCount = 0
 
-        top: {
-            for (let key in filteredStructure) {
-                if (filteredStructure[key].length !== 0) {
-                    checkCount++
-                    for (let j = 0; j < filteredStructure[key].length; j++) {
-                        for (let k = 0; k < dataStructure[i][key].length; k++) {
-                            if (dataStructure[i][key][k] != filteredStructure[key][j] && k === dataStructure[i][key].length-1) {
-                                break top
-                            }
+        for (let key in filterDic) {
+            if (filterDic[key].length !== 0) {
+                filterDic[key].forEach(function (filterItem) {
+                    dataStructure[i][key].forEach(function (dataItem) {
+                        if (filterItem != dataItem) {
+                            checker_BOOL = false
                         }
-                    }
-                }
-            }
-            console.log(checkCount, dicCount)
-            if (checkCount === dicCount) {
-                filteredObj.push(dataStructure[i])
+                    })
+                })
             }
         }
+
+        if (checker_BOOL === true) {
+            filteredObj.push(dataStructure[i])
+        }
     }
+
     return filteredObj
 }
 
