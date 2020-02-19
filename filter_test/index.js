@@ -1,9 +1,5 @@
 const FILTER_DIC_1 = {
-    "color": ["white"],
-    "display": [],
     "memory": [128],
-    "model": [],
-    "price": [],
     "shops": ["трк_авиапарк",
     "трк_атриум"]
 }
@@ -11,39 +7,17 @@ const FILTER_DIC_1 = {
 const FILTER_DIC_2 = {
     "color": ["black"],
     "display": [7.3],
-    "memory": [],
-    "model": [],
-    "price": [],
-    "shops": []
 }
 
 const FILTER_DIC_3 = {
-    "color": [],
-    "display": [],
-    "memory": [300],
-    "model": [],
-    "price": [],
-    "shops": ["трк_авиапарк",
-        "трк_атриум"]
+    "color": ["white"],
 }
 
 const FILTER_DIC_4 = {
-    "color": [],
     "display": [4.7],
-    "memory": [],
-    "model": [],
-    "price": [],
-    "shops": []
 }
 
-const FILTER_DIC_5 = {
-    "color": [],
-    "display": [],
-    "memory": [],
-    "model": [],
-    "price": [],
-    "shops": []
-}
+const FILTER_DIC_5 = {}
 
 function filter_array_test(filterArr, number, data) {
     let i = 0
@@ -60,7 +34,7 @@ async function main(DATA) {
     const response = await fetch(DATA),
         data = await response.json()
 
-    filter_array_test([FILTER_DIC_1, FILTER_DIC_2, FILTER_DIC_3, FILTER_DIC_4, FILTER_DIC_5],[1, 1, 0, 2, 5], data)
+    filter_array_test([FILTER_DIC_1, FILTER_DIC_2, FILTER_DIC_3, FILTER_DIC_4, FILTER_DIC_5],[4, 1, 3, 2, 5], data)
 }
 
 function validate_item(item, dictionary) {
@@ -76,10 +50,13 @@ function validate_item(item, dictionary) {
                 for (let k = 0; k < item[key].length; k++) {
                     if (item[key][k] == dictionary[key][j]) {
                         check = true
+                        break
                     } else {
-                        if (k + 1 === item[key][k]) {
-                            if (check === false) {
-                                return check
+                        if (check === false) {
+                            if (k + 1 === item[key].length) {
+                                if (j + 1 === dictionary[key].length) {
+                                    return check
+                                }
                             }
                         }
                     }
@@ -87,8 +64,13 @@ function validate_item(item, dictionary) {
             } else {
                 if (item[key] == dictionary[key][j]) {
                     check = true
+                    break
                 } else {
-                    return check
+                    if (check === false) {
+                        if (j + 1 === dictionary[key].length) {
+                            return check
+                        }
+                    }
                 }
             }
         }
