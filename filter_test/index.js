@@ -58,48 +58,37 @@ async function main(DATA) {
 }
 
 function validate_object(data, filterDic) {
-    let check_BOOL = false
+    let check = true
 
     for (let key in filterDic) {
 
-        if (filterDic[key].length !== 0) {
+        for (let j = 0; j < filterDic[key].length; j++) {
 
-            for (let j = 0; j < filterDic[key].length; j++) {
+            check = false
 
-                check_BOOL = false
-
-                if (Array.isArray(data[key]) === true) {
-                    for (let k = 0; k < data[key].length; k++) {
-                        if (data[key][k] == filterDic[key][j]) {
-                            check_BOOL = true
-                        } else {
-                            if (k + 1 === data[key][k]) {
-                                if (check_BOOL === false) {
-                                    return check_BOOL
-                                }
+            if (Array.isArray(data[key]) === true) {
+                for (let k = 0; k < data[key].length; k++) {
+                    if (data[key][k] == filterDic[key][j]) {
+                        check = true
+                    } else {
+                        if (k + 1 === data[key][k]) {
+                            if (check === false) {
+                                return check
                             }
                         }
                     }
-                } else {
-                    if (data[key] == filterDic[key][j]) {
-                        check_BOOL = true
-                    } else {
-                        return check_BOOL
-                    }
                 }
-            }
-        } else if (filterDic[key].length === 0) {
-            for (let j = 0; j < Object.keys(filterDic).length; j++) {
-                if (filterDic[Object.keys(filterDic)[j]].length === 0) {
-                    if ((j + 1) === Object.keys(filterDic).length) {
-                        check_BOOL = true
-                    }
+            } else {
+                if (data[key] == filterDic[key][j]) {
+                    check = true
+                } else {
+                    return check
                 }
             }
         }
     }
     
-    return check_BOOL
+    return check
 }
 
 function filter_data(data, filterDic) {
