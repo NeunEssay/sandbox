@@ -20,7 +20,7 @@ const FILTER_DIC_2 = {
 const FILTER_DIC_3 = {
     "color": [],
     "display": [],
-    "memory": [],
+    "memory": [300],
     "model": [],
     "price": [],
     "shops": ["метрополис"]
@@ -50,11 +50,11 @@ async function main(DATA) {
     const response = await fetch(DATA),
         data = await response.json()
 
-    console.log(filter_data(data, FILTER_DIC_1))
-    console.log(filter_data(data, FILTER_DIC_2))
-    console.log(filter_data(data, FILTER_DIC_3))
-    console.log(filter_data(data, FILTER_DIC_4))
-    console.log(filter_data(data, FILTER_DIC_5))
+    console.log('Под условия фильтра:', Object.values(FILTER_DIC_1), 'подходят следующие товары:', filter_data(data, FILTER_DIC_1), ' в количестве 3 шт.')
+    console.log('Под условия фильтра:', Object.values(FILTER_DIC_2), 'подходят следующие товары:', filter_data(data, FILTER_DIC_2), ' в количестве 1 шт.')
+    console.log('Под условия фильтра:', Object.values(FILTER_DIC_3), 'подходят следующие товары:', filter_data(data, FILTER_DIC_3), ' в количестве 0 шт.')
+    console.log('Под условия фильтра:', Object.values(FILTER_DIC_4), 'подходят следующие товары:', filter_data(data, FILTER_DIC_4), ' в количестве 2 шт.')
+    console.log('Под условия фильтра:', Object.values(FILTER_DIC_5), 'подходят следующие товары:', filter_data(data, FILTER_DIC_5), ' в количестве 5 шт.')
 }
 
 function validate_item(item, dictionary) {
@@ -70,6 +70,7 @@ function validate_item(item, dictionary) {
                 for (let k = 0; k < item[key].length; k++) {
                     if (item[key][k] == dictionary[key][j]) {
                         check = true
+                        return check
                     } else {
                         if (k + 1 === item[key][k]) {
                             if (check === false) {
@@ -81,13 +82,13 @@ function validate_item(item, dictionary) {
             } else {
                 if (item[key] == dictionary[key][j]) {
                     check = true
+                    return check
                 } else {
                     return check
                 }
             }
         }
     }
-    
     return check
 }
 
