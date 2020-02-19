@@ -1,34 +1,56 @@
 [
   {
-    "color": ["rose_gold"],
-    "display": [4.7],
-    "memory": [128],
-    "model": ["5s", "9s"],
-    "price": [31990],
-    "shops": [
-      "трк_авиапарк",
-      "трк_атриум"
-    ]
+    "color": "rose_gold",
+    "display": 4.7,
+    "memory": 128,
+    "model": "5s",
+    "price": 31990,
+    "shops":
+      ["трк_авиапарк",
+      "трк_атриум"]
   },
   {
-    "color": ["silver"],
-    "display": [4.7],
-    "memory": [128],
-    "model": ["6s"],
-    "price": [32990],
-    "shops": [
+    "color": "silver",
+    "display": 4.7,
+    "memory": 128,
+    "model": "6s",
+    "price": 32990,
+    "shops":
       "трк_авиапарк"
-    ]
+
   },
   {
-    "color": ["silver"],
-    "display": [5.8],
-    "memory": [64],
-    "model": ["7s"],
-    "price": [33990],
-    "shops": [
-      "трк_авиапарк",
-      "трк_атриум"
-    ]
+    "color": "silver",
+    "display": 5.8,
+    "memory": 64,
+    "model": "7s",
+    "price": 33990,
+    "shops":
+      ["трк_авиапарк",
+      "трк_атриум"]
+
+  },
+  {
+    "color": "black",
+    "display": 7.3,
+    "memory": 999,
+    "model": "6s",
+    "price": 31990,
+    "shops":
+      ["трк_авиапарк",
+      "европейский",
+      "трк_атриум"]
+
+  },
+  {
+    "color": "green",
+    "display": 8.1,
+    "memory": 128,
+    "model": "5s",
+    "price": 31990,
+    "shops":
+      ["трк_авиапарк",
+      "метрополис",
+      "трк_атриум"]
   }
 ]
