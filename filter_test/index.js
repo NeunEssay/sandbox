@@ -57,21 +57,21 @@ async function main(DATA) {
     console.log(filter_data(data, FILTER_DIC_5))
 }
 
-function validate_object(data, filterDic) {
+function validate_item(item, dictionary) {
     let check = true
 
-    for (let key in filterDic) {
+    for (let key in dictionary) {
 
-        for (let j = 0; j < filterDic[key].length; j++) {
+        for (let j = 0; j < dictionary[key].length; j++) {
 
             check = false
 
-            if (Array.isArray(data[key]) === true) {
-                for (let k = 0; k < data[key].length; k++) {
-                    if (data[key][k] == filterDic[key][j]) {
+            if (Array.isArray(item[key]) === true) {
+                for (let k = 0; k < item[key].length; k++) {
+                    if (item[key][k] == dictionary[key][j]) {
                         check = true
                     } else {
-                        if (k + 1 === data[key][k]) {
+                        if (k + 1 === item[key][k]) {
                             if (check === false) {
                                 return check
                             }
@@ -79,7 +79,7 @@ function validate_object(data, filterDic) {
                     }
                 }
             } else {
-                if (data[key] == filterDic[key][j]) {
+                if (item[key] == dictionary[key][j]) {
                     check = true
                 } else {
                     return check
@@ -91,12 +91,12 @@ function validate_object(data, filterDic) {
     return check
 }
 
-function filter_data(data, filterDic) {
+function filter_data(data, dictionary) {
     let filteredObj = []
 
     for (let i = 0; i < data.length; i++) {
 
-        if (validate_object(data[i], filterDic) === true) {
+        if (validate_item(data[i], dictionary) === true) {
             filteredObj.push(data[i])
         }
     }
