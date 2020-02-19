@@ -20,7 +20,7 @@
 
   },
   {
-    "color": "silver",
+    "color": ["white","silver"],
     "display": 5.8,
     "memory": 64,
     "model": "7s",
@@ -44,7 +44,7 @@
 
   },
   {
-    "color": "green",
+    "color": ["white","green"],
     "display": 8.1,
     "memory": 128,
     "model": "5s",

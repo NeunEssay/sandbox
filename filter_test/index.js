@@ -1,11 +1,11 @@
 const FILTER_DIC_1 = {
-    "color": [],
+    "color": ["white"],
     "display": [],
     "memory": [128],
     "model": [],
     "price": [],
     "shops": ["трк_авиапарк",
-        "трк_атриум"]
+    "трк_атриум"]
 }
 
 const FILTER_DIC_2 = {
@@ -23,7 +23,8 @@ const FILTER_DIC_3 = {
     "memory": [300],
     "model": [],
     "price": [],
-    "shops": ["метрополис"]
+    "shops": ["трк_авиапарк",
+        "трк_атриум"]
 }
 
 const FILTER_DIC_4 = {
@@ -44,17 +45,22 @@ const FILTER_DIC_5 = {
     "shops": []
 }
 
+function filter_array_test(filterArr, number, data) {
+    let i = 0
+
+    filterArr.forEach(filterItem => {
+        console.log('Из данных товаров под условия фильтра:', Object.values(filterItem), 'подходят следующие товары:', filter_data(data, filterItem), ' в количестве ' + number[i] + ' шт.')
+        i++
+    })
+}
+
 const IPHONE_DATA = 'data.json'
 
 async function main(DATA) {
     const response = await fetch(DATA),
         data = await response.json()
 
-    console.log('Под условия фильтра:', Object.values(FILTER_DIC_1), 'подходят следующие товары:', filter_data(data, FILTER_DIC_1), ' в количестве 3 шт.')
-    console.log('Под условия фильтра:', Object.values(FILTER_DIC_2), 'подходят следующие товары:', filter_data(data, FILTER_DIC_2), ' в количестве 1 шт.')
-    console.log('Под условия фильтра:', Object.values(FILTER_DIC_3), 'подходят следующие товары:', filter_data(data, FILTER_DIC_3), ' в количестве 0 шт.')
-    console.log('Под условия фильтра:', Object.values(FILTER_DIC_4), 'подходят следующие товары:', filter_data(data, FILTER_DIC_4), ' в количестве 2 шт.')
-    console.log('Под условия фильтра:', Object.values(FILTER_DIC_5), 'подходят следующие товары:', filter_data(data, FILTER_DIC_5), ' в количестве 5 шт.')
+    filter_array_test([FILTER_DIC_1, FILTER_DIC_2, FILTER_DIC_3, FILTER_DIC_4, FILTER_DIC_5],[1, 1, 0, 2, 5], data)
 }
 
 function validate_item(item, dictionary) {
@@ -70,7 +76,6 @@ function validate_item(item, dictionary) {
                 for (let k = 0; k < item[key].length; k++) {
                     if (item[key][k] == dictionary[key][j]) {
                         check = true
-                        return check
                     } else {
                         if (k + 1 === item[key][k]) {
                             if (check === false) {
@@ -82,7 +87,6 @@ function validate_item(item, dictionary) {
             } else {
                 if (item[key] == dictionary[key][j]) {
                     check = true
-                    return check
                 } else {
                     return check
                 }
