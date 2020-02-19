@@ -51,26 +51,12 @@ function validate_item(item, dictionary) {
                     if (item[key][k] == dictionary[key][j]) {
                         check = true
                         break
-                    } else {
-                        if (check === false) {
-                            if (k + 1 === item[key].length) {
-                                if (j + 1 === dictionary[key].length) {
-                                    return check
-                                }
-                            }
-                        }
                     }
                 }
             } else {
                 if (item[key] == dictionary[key][j]) {
                     check = true
                     break
-                } else {
-                    if (check === false) {
-                        if (j + 1 === dictionary[key].length) {
-                            return check
-                        }
-                    }
                 }
             }
         }
