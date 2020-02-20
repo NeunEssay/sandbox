@@ -60,6 +60,9 @@ function validate_item(item, dictionary) {
                 }
             }
         }
+        if (check === false) {
+            return check
+        }
     }
     return check
 }
