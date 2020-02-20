@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3aee24c8-b5cf-4702-9db5-832489ee9f6a" name="Default Changelist" comment="filter_test">
+      <change afterPath="$PROJECT_DIR$/filter_test/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filter_test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/filter_test/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filter_test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/filter_test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filter_test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/filter_test/filter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iframe_test/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iframe_test/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iframe_test/.idea/modules.xml" beforeDir="false" />
@@ -68,6 +70,8 @@
       <workItem from="1582040905212" duration="7263000" />
       <workItem from="1582096775558" duration="30846000" />
       <workItem from="1582183113614" duration="939000" />
+      <workItem from="1582192081256" duration="2282000" />
+      <workItem from="1582194376112" duration="16236000" />
     </task>
     <task id="LOCAL-00001" summary="iframe test">
       <created>1580203093622</created>
@@ -174,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582129848852</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="filter_test">
+      <created>1582192107496</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1582192107496</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,18 +201,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="246" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582011882782" />
-    <state x="583" y="28" key="CommitChangelistDialog2" timestamp="1582192092110">
+    <state x="583" y="28" key="CommitChangelistDialog2" timestamp="1582192106563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="583" y="28" key="CommitChangelistDialog2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582192092110" />
+    <state x="583" y="28" key="CommitChangelistDialog2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582192106563" />
     <state x="740" y="260" key="FileChooserDialogImpl" timestamp="1582184493207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="260" key="FileChooserDialogImpl/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582184493207" />
-    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2" timestamp="1582129853746">
+    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2" timestamp="1582192111589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582129853746" />
+    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582192111589" />
+    <state x="616" y="235" key="run.anything.popup" timestamp="1582208258258">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="235" key="run.anything.popup/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582208258258" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582029803013">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
