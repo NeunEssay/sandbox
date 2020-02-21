@@ -28,7 +28,7 @@ function validate_item(item, dictionary) {
     return check
 }
 
-window['filter'] = function filter_data(data, dictionary) {
+function filter_data(data, dictionary) {
     let filteredData = []
 
     for (let i = 0; i < data.length; i++) {

@@ -1,5 +1,3 @@
-const IPHONE_DATA = 'data.json'
-
 const DICTIONARY = {
     "color": [],
     "display": [],
@@ -9,10 +7,12 @@ const DICTIONARY = {
     "shops": []
 }
 
-function filter_options() {
+let DATA = []
+
+function load_data() {
     fetch("data.json")
         .then(response => response.json())
-        .then(data => add_options(filter(data, DICTIONARY)))
+        .then(data => data.forEach(item => DATA.push(item)))
 }
 
 function add_to_dictionary(select, key) {
@@ -42,8 +42,7 @@ function add_select() {
         select.addEventListener(
             'change',
             function () {
-                add_to_dictionary(select, key)
-                filter_options()
+                filter_options(select, key)
             }
         )
     }
@@ -69,14 +68,14 @@ function option_clean(select) {
     }
 }
 
-function add_options(filteredData) {
+function add_options(data) {
 
     for (let key in DICTIONARY) {
         const select = document.getElementById('select-' + key)
 
         if (select.selectedIndex == 0) {
             option_clean(select)
-            unique_filter(filteredData, key).forEach(value => {
+            unique_filter(data, key).forEach(value => {
                 let option = document.createElement('option')
                 option.textContent = value
                 select.appendChild(option)
@@ -87,5 +86,13 @@ function add_options(filteredData) {
     }
 }
 
-add_select()
-filter_options()
+function init() {
+    load_data()
+    add_select()
+    add_options(DATA)
+}
+
+function filter_options(select, key) {
+    add_to_dictionary(select, key)
+    filter_data(DATA, DICTIONARY)
+}
