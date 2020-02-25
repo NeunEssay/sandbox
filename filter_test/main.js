@@ -9,10 +9,14 @@ const DICTIONARY = {
 
 let DATA = []
 
-function load_data() {
+function init() {
     fetch("data.json")
         .then(response => response.json())
         .then(data => data.forEach(item => DATA.push(item)))
+        .then(function () {
+            add_select()
+            add_options(DATA)
+        })
 }
 
 function add_to_dictionary(select, key) {
@@ -86,13 +90,7 @@ function add_options(data) {
     }
 }
 
-function init() {
-    load_data()
-    add_select()
-    add_options(DATA)
-}
-
 function filter_options(select, key) {
     add_to_dictionary(select, key)
-    filter_data(DATA, DICTIONARY)
+    add_options(filter_data(DATA, DICTIONARY))
 }
