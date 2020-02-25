@@ -72,7 +72,7 @@
       <workItem from="1582194376112" duration="16968000" />
       <workItem from="1582267469757" duration="4666000" />
       <workItem from="1582274137850" duration="20468000" />
-      <workItem from="1582614648871" duration="5417000" />
+      <workItem from="1582614648871" duration="19103000" />
     </task>
     <task id="LOCAL-00001" summary="iframe test">
       <created>1580203093622</created>
@@ -207,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582297121780</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="filter_test">
+      <created>1582620370846</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1582620370846</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,18 +230,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="246" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582011882782" />
-    <state x="583" y="28" key="CommitChangelistDialog2" timestamp="1582298293868">
+    <state x="583" y="28" key="CommitChangelistDialog2" timestamp="1582620369988">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="583" y="28" key="CommitChangelistDialog2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582298293868" />
+    <state x="583" y="28" key="CommitChangelistDialog2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582620369988" />
     <state x="740" y="260" key="FileChooserDialogImpl" timestamp="1582184493207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="260" key="FileChooserDialogImpl/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582184493207" />
-    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2" timestamp="1582290836677">
+    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2" timestamp="1582620376819">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582290836677" />
+    <state x="552" y="247" width="812" height="545" key="Vcs.Push.Dialog.v2/1920.65.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582620376819" />
     <state x="611" y="133" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1582275124153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
