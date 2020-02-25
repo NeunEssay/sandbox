@@ -1,3 +1,5 @@
+const JSON = 'data.json'
+
 const DICTIONARY = {
     "color": [],
     "display": [],
@@ -10,7 +12,7 @@ const DICTIONARY = {
 let DATA = Array.prototype
 
 function init() {
-    fetch("data.json")
+    fetch(JSON)
         .then(response => response.json())
         .then(data => data.forEach(item => DATA.push(item)))
         .then(function () {
