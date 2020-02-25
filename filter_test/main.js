@@ -1,6 +1,6 @@
 const JSON = 'data.json'
 
-const DICTIONARY = {
+const FILTER_DICTIONARY = {
     "color": [],
     "display": [],
     "memory": [],
@@ -25,16 +25,16 @@ function add_to_dictionary(select, key) {
     let value = select.options[select.selectedIndex].value
 
     if (value == 'default') {
-        DICTIONARY[key] = []
+        FILTER_DICTIONARY[key] = []
     } else {
-        DICTIONARY[key] = [value]
+        FILTER_DICTIONARY[key] = [value]
     }
 }
 
 function add_select() {
     const selectBlock = document.getElementById('select-block')
 
-    for (let key in DICTIONARY) {
+    for (let key in FILTER_DICTIONARY) {
         let select = document.createElement('select'),
             option = document.createElement('option')
 
@@ -54,14 +54,14 @@ function add_select() {
     }
 }
 
-function unique_options_filter(arr, key) {
+function unique_options_filter(data, key) {
     let selectArr = new Set()
 
-    arr.forEach(function(item) {
+    data.forEach(function(item) {
         if (Array.isArray(item[key]) == true) {
-            item[key].forEach(value => selectArr.add(value))
+            item[key].forEach(value => selectArr.add(value).toString())
         } else {
-            selectArr.add(item[key])
+            selectArr.add(item[key].toString())
         }
     })
 
@@ -69,7 +69,7 @@ function unique_options_filter(arr, key) {
 }
 
 function fill_options(data) {
-    for (let key in DICTIONARY) {
+    for (let key in FILTER_DICTIONARY) {
         const select = document.getElementById('select-' + key)
 
         unique_options_filter(data, key).forEach(value => {
@@ -80,37 +80,22 @@ function fill_options(data) {
     }
 }
 
-function option_disable(arr) {
-    for (let key in DICTIONARY) {
+function disable_options(data) {
+    for (let key in FILTER_DICTIONARY) {
         const select = document.getElementById('select-' + key)
 
-        let ableOptions = new Set
-
-        if (select.selectedIndex != 0) {
-            for (let i = 0; i < select.length; i++) {
-                if (select.options[i].value != 'default') {
-                    if (select.options[i].value != select.options[select.selectedIndex].value) {
-                        select.options[i].disabled = true
-                    }
+        if (FILTER_DICTIONARY[key].length != 0) {
+            for (let i = 1; i < select.length; i++) {
+                if (select.options[i].value != select.options[select.selectedIndex].value) {
+                    select.options[i].disabled = true
                 }
             }
         } else {
-
-            arr.forEach(function (item) {
-                if (Array.isArray(item[key]) == true) {
-                    item[key].forEach(value => ableOptions.add(value.toString()))
+            for (let i = 1; i < select.length; i++) {
+                if (unique_options_filter(data, key).has(select.options[i].value) == false) {
+                    select.options[i].disabled = true
                 } else {
-                    ableOptions.add(item[key].toString())
-                }
-            })
-
-            for (let i = 0; i < select.length; i++) {
-                if (select.options[i].value != 'default') {
-                    if (ableOptions.has(select.options[i].value) == false) {
-                        select.options[i].disabled = true
-                    } else {
-                        select.options[i].disabled = false
-                    }
+                    select.options[i].disabled = false
                 }
             }
         }
@@ -119,5 +104,5 @@ function option_disable(arr) {
 
 function filter_options(select, key) {
     add_to_dictionary(select, key)
-    option_disable(filter_data(DATA, DICTIONARY))
+    disable_options(filter_data(DATA, FILTER_DICTIONARY))
 }
